@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="MOVE_ADMIN" schema="TTC"
+		class="com.neu.dao.Admin">
+		<primary-key>
+			<generator class="assigned"></generator>
+		</primary-key>
+	</table>
+<table name="MOVE_BOOKING" schema="TTC"
+	class="com.neu.entity.Booking">
+	<primary-key>
+		<generator class="sequence">
+			 <param name= "sequence">move_book</param> 
+		</generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

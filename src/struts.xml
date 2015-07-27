@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<action name="AdminAction" class="AdminAction">
+			<result>/WEB-INF/jsp/main.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+	</package>
+	
+	<package name="move_booking" extends="struts-default" namespace="/booking">
+		<action name="enterInsert">
+			<result>/WEB-INF/jsp/addMessage.jsp</result>
+		</action>
+		<action name="BookingAction" class="BookingAction">
+			<result>/WEB-INF/jsp/main.jsp</result>
+		</action>
+		<action name="SelectBooking" class="BookingAction" method="findAll">
+			<result type="chain">
+				<param name="actionName">ShowBooking</param>
+				<param name="namespace">/booking</param>				
+			</result>
+		</action>
+		<action name="ShowBooking" class="BookingAction" method="findBypage">
+			<result>/WEB-INF/jsp/showAll.jsp</result>
+		</action>
+		
+		<action name="AddUpdateMessage" class="BookingAction">
+			<result name="updateMessage">/WEB-INF/jsp/updateMessage.jsp</result>
+			<result name="checkedMessage">/WEB-INF/jsp/checkedMessage.jsp</result>
+		</action>
+		
+		<action name="UpdateMessage" class="BookingAction" >
+			<result name="updateMessage" type="chain" >
+				<param name="actionName">SelectBooking</param>
+				<param name="namespace">/booking</param>
+			</result>
+		</action>
+	</package>
+</struts>    
